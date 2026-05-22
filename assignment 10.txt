@@ -1,0 +1,29 @@
+import React, { useState } from "react";
+function App() {
+  const [inputValue, setInputValue] = useState("");
+  const [result, setResult] = useState("");
+  const reverseValue = () => {
+    let reversed = inputValue
+      .split("")
+      .reverse()
+      .join("");
+    setResult(reversed);
+  };
+  return (
+    <div style={{padding:"20px"}}>
+      <h1>Reverse Number and String</h1>
+      <input
+        type="text"
+        placeholder="Enter Number or String"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+      />
+      <br /><br />
+      <button onClick={reverseValue}>
+        Reverse
+      </button>
+      <h2>Result : {result}</h2>
+    </div>
+  );
+}
+export default App;

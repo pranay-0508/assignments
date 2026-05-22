@@ -1,0 +1,82 @@
+import React, { useState } from "react";
+function App() {
+  const matrixA = [
+    [1, 2],
+    [3, 4]
+  ];
+  const matrixB = [
+    [5, 6],
+    [7, 8]
+  ];
+  const [result, setResult] = useState([]);
+  const addMatrices = () => {
+    let sum = [];
+    for(let i = 0; i < 2; i++)
+    {
+      sum[i] = [];
+      for(let j = 0; j < 2; j++)
+      {
+        sum[i][j] = matrixA[i][j] + matrixB[i][j];
+      }
+    }
+    setResult(sum);
+  };
+  return (
+    <div style={{padding:"20px"}}>
+      <h1>Matrix Addition Using ReactJS</h1>
+      <h2>Matrix A</h2>
+      <table border="1" cellPadding="10">
+        <tbody>
+          {
+            matrixA.map((row, index) => (
+              <tr key={index}>
+                {
+                  row.map((value, i) => (
+                    <td key={i}>{value}</td>
+                  ))
+                }
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+      <h2>Matrix B</h2>
+      <table border="1" cellPadding="10">
+        <tbody>
+          {
+            matrixB.map((row, index) => (
+              <tr key={index}>
+                {
+                  row.map((value, i) => (
+                    <td key={i}>{value}</td>
+                  ))
+                }
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+      <br />
+      <button onClick={addMatrices}>
+        Add Matrices
+      </button>
+      <h2>Result Matrix</h2>
+      <table border="1" cellPadding="10">
+        <tbody>
+          {
+            result.map((row, index) => (
+              <tr key={index}>
+                {
+                  row.map((value, i) => (
+                    <td key={i}>{value}</td>
+                  ))
+                }
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  );
+}
+export default App;

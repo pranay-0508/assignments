@@ -1,0 +1,23 @@
+import React from "react";
+function App() {
+  const book = {
+    title: "Java Programming",
+    author: "James Gosling",
+    isbn: "12345",
+    publisher: "Oracle",
+    edition: "5th",
+    price: "500"
+  };
+  return (
+    <div>
+      <h1>Book Information</h1>
+      <p><b>Title:</b> {book.title}</p>
+      <p><b>Author:</b> {book.author}</p>
+      <p><b>ISBN:</b> {book.isbn}</p>
+      <p><b>Publisher:</b> {book.publisher}</p>
+      <p><b>Edition:</b> {book.edition}</p>
+      <p><b>Price:</b> {book.price}</p>
+    </div>
+  );
+}
+export default App;

@@ -1,0 +1,71 @@
+import React, { useState } from "react";
+function App() {
+  const [pattern, setPattern] = useState("");
+  const [output, setOutput] = useState("");
+  const printPattern = (type) => {
+    let result = "";
+    // Star Pattern
+    if(type === "star")
+    {
+      for(let i = 1; i <= 5; i++)
+      {
+        for(let j = 1; j <= i; j++)
+        {
+          result += "* ";
+        }
+        result += "\n";
+      }
+    }
+    // Number Pattern
+    else if(type === "number")
+    {
+      for(let i = 1; i <= 5; i++)
+      {
+        for(let j = 1; j <= i; j++)
+        {
+          result += j + " ";
+        }
+        result += "\n";
+      }
+    }
+    // Alphabet Pattern
+    else if(type === "alphabet")
+    {
+      for(let i = 0; i < 5; i++)
+      {
+        for(let j = 0; j <= i; j++)
+        {
+          result += String.fromCharCode(65 + j) + " ";
+        }
+        result += "\n";
+      }
+    }
+    setOutput(result);
+  };
+  return (
+    <div style={{padding:"20px"}}>
+      <h1>ReactJS Pattern Program</h1>
+      <select
+        value={pattern}
+        onChange={(e) => {
+          setPattern(e.target.value);
+          printPattern(e.target.value);
+        }}
+      >
+        <option value="">Select Pattern</option>
+        <option value="star">
+          Star Pattern
+        </option>
+        <option value="number">
+          Number Pattern
+        </option>
+        <option value="alphabet">
+          Alphabet Pattern
+        </option>
+      </select>
+      <h2>Output</h2>
+      <pre>{output}</pre>
+    </div>
+  );
+}
+export default App;
